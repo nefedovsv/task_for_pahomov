@@ -25,8 +25,9 @@ export interface IAddUserData {
 export interface IRequest {
   type: string;
   payload: {
-    hasErrored?: boolean;
+    hasError?: boolean;
     isLoading?: boolean;
     secretKey?: ISecretKey;
+    isAuthenticated?: boolean;
   };
 }

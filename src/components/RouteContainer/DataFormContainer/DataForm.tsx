@@ -1,7 +1,9 @@
 import * as React from "react";
-import { useDispatch } from "react-redux";
-import { IUserData } from "../../../interfaces/index";
 import { itemsFetchData } from "../../../action/addSecretKey";
+import { useStyles } from "./UseStyles";
+import { Copyright } from "./Copyright";
+import { Dispatch } from "redux";
+import { IUserData } from "../../../interfaces/index";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -14,29 +16,17 @@ import Box from "@material-ui/core/Box";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import { useStyles } from "./UseStyles";
-import { Copyright } from "./Copyright";
 
-export const DataForm: React.FC<{}> = () => {
-  const dispatch: any = useDispatch();
+interface IProps {
+  dispatch: Dispatch<any>;
+  handleChange: (evt: React.ChangeEvent<HTMLInputElement>) => void;
+  userInput: IUserData;
+}
 
-  const init: IUserData = {
-    name: "",
-    password: ""
-  };
-
-  const [userInput, setUserInput] = React.useReducer(
-    (state: IUserData, newState): IUserData => ({ ...state, ...newState }),
-    init
-  );
-
-  const handleChange: any = (evt: any) => {
-    const { name, value } = evt.currentTarget;
-    setUserInput({ [name]: value });
-  };
+export const DataForm = (props: IProps) => {
+  const { dispatch, handleChange, userInput } = props;
 
   const classes = useStyles();
-
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />

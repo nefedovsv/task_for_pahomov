@@ -10,7 +10,7 @@ export const NoMatchPage = withRouter(({ history }) => {
         history.push("/");
       }}
     >
-      Вернуться на главную - роута нет!
+      Вернуться на главную!
     </Button>
   );
 });

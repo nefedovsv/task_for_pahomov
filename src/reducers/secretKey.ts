@@ -1,10 +1,10 @@
 import * as Request from "../constants/index";
 import { IRequest } from "../interfaces/index";
 
-export function hasErrored(state = false, action: IRequest) {
+export function hasError(state = false, action: IRequest) {
   switch (action.type) {
     case Request.HAS_ERROR:
-      return action.payload.hasErrored;
+      return action.payload.hasError;
 
     default:
       return state;

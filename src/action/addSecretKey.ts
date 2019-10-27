@@ -5,22 +5,21 @@ import { addUserData } from "../action/addUserData";
 import fetchMock from "fetch-mock";
 
 const makeRequest = async (): Promise<ISecretKey> => {
-  const response = await fetch(`${Request.API_SERVER}`);
-  const data: ISecretKey = await response.json();
-  return data;
+  const response = await fetch(Request.API_SERVER);
+  return response.json();
 };
 
-export function hasErrored(bool: boolean): IRequest {
+export function hasError(value: boolean): IRequest {
   return {
     type: Request.HAS_ERROR,
-    payload: { hasErrored: bool }
+    payload: { hasError: value }
   };
 }
 
-export function isLoading(bool: boolean): IRequest {
+export function isLoading(value: boolean): IRequest {
   return {
     type: Request.IS_LOADING,
-    payload: { isLoading: bool }
+    payload: { isLoading: value }
   };
 }
 
@@ -34,34 +33,38 @@ export function dataSuccess(items: {
   };
 }
 
-export function logOut() {
+export function logOut(): IRequest {
   return {
     type: Request.LOG_OUT,
     payload: { isAuthenticated: false }
   };
 }
 
+const defaultSecretKey: ISecretKey = {
+  jwt: "86fasfgfsogHGad",
+  isAuthenticated: true
+};
+
 export function itemsFetchData(userData: IUserData) {
-  return (dispatch: Dispatch): any => {
+  return async (dispatch: Dispatch): Promise<void> => {
     dispatch(addUserData(userData));
 
     dispatch(isLoading(true));
 
-    fetchMock.get("*", { jwt: "86fasfgfsogHGad", isAuthenticated: true });
+    fetchMock.get("*", defaultSecretKey);
 
     try {
-      makeRequest().then(data => {
-        if (data) {
-          dispatch(isLoading(false));
-          localStorage.setItem("jwt", data.jwt);
+      const data = await makeRequest();
 
-          dispatch(dataSuccess(data));
-        }
-      });
+      if (data) {
+        dispatch(isLoading(false));
+        localStorage.setItem("jwt", data.jwt);
 
+        dispatch(dataSuccess(data));
+      }
       fetchMock.reset();
     } catch (error) {
-      dispatch(hasErrored(true));
+      dispatch(hasError(true));
     }
   };
 }
