@@ -1,9 +1,18 @@
 import * as Request from "../constants/index";
-import { IRequest, IUserData, ISecretKey } from "../interfaces/index";
-import { Dispatch } from "redux";
+import { IRequest, ISecretKey, IAddUserData } from "../interfaces/index";
 import { addUserData } from "../action/addUserData";
 import fetchMock from "fetch-mock";
 import { history } from "../components/RouteContainer/IndexRoute";
+import { call, put, takeEvery } from "redux-saga/effects";
+
+const defaultSecretKey: ISecretKey = {
+  jwt: "86fasfgfsogHGad",
+  isAuthenticated: true
+};
+
+export default function* Saga() {
+  yield takeEvery(Request.USER_ACTION, itemsFetchData);
+}
 
 const makeRequest = async (): Promise<ISecretKey> => {
   const response = await fetch(Request.API_SERVER);
@@ -43,31 +52,26 @@ export function logOut(): IRequest {
   };
 }
 
-const defaultSecretKey: ISecretKey = {
-  jwt: "86fasfgfsogHGad",
-  isAuthenticated: true
-};
+function* itemsFetchData(action: IAddUserData) {
+  try {
+    yield put(addUserData(action.payload));
 
-export function itemsFetchData(userData: IUserData) {
-  return async (dispatch: Dispatch): Promise<void> => {
-    dispatch(addUserData(userData));
-
-    dispatch(isLoading(true));
+    yield put(isLoading(true));
 
     fetchMock.get("*", defaultSecretKey);
 
-    try {
-      const data = await makeRequest();
+    const data: ISecretKey = yield call(() => makeRequest());
 
-      if (data) {
-        dispatch(isLoading(false));
-        localStorage.setItem("jwt", data.jwt);
+    if (data) {
+      yield put(isLoading(false));
 
-        dispatch(dataSuccess(data));
-      }
+      localStorage.setItem("jwt", data.jwt);
+
+      yield put(dataSuccess(data));
+
       fetchMock.reset();
-    } catch (error) {
-      dispatch(hasError(true));
     }
-  };
+  } catch (e) {
+    yield put(hasError(true));
+  }
 }

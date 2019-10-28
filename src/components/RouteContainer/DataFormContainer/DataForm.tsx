@@ -1,5 +1,4 @@
 import * as React from "react";
-import { itemsFetchData } from "../../../action/addSecretKey";
 import { useStyles } from "./UseStyles";
 import { Copyright } from "./Copyright";
 import { Dispatch } from "redux";
@@ -16,6 +15,7 @@ import Box from "@material-ui/core/Box";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
+import { userAction } from "../../../action/addUserData";
 
 interface IProps {
   dispatch: Dispatch<any>;
@@ -74,7 +74,7 @@ export const DataForm = (props: IProps) => {
             variant="contained"
             color="primary"
             className={classes.submit}
-            onClick={(): any => dispatch(itemsFetchData(userInput))}
+            onClick={(): any => dispatch(userAction(userInput))}
           >
             Войти в аккаунт
           </Button>

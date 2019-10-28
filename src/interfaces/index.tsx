@@ -1,5 +1,3 @@
-import { ADD_USER_DATA } from "../constants/index";
-
 export interface IUserData {
   name: string;
   password: string;
@@ -18,7 +16,7 @@ export interface IStore {
 }
 
 export interface IAddUserData {
-  type: typeof ADD_USER_DATA;
+  type: string;
   payload: IUserData;
 }
 
