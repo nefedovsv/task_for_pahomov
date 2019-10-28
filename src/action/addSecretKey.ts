@@ -3,6 +3,7 @@ import { IRequest, IUserData, ISecretKey } from "../interfaces/index";
 import { Dispatch } from "redux";
 import { addUserData } from "../action/addUserData";
 import fetchMock from "fetch-mock";
+import { history } from "../components/RouteContainer/IndexRoute";
 
 const makeRequest = async (): Promise<ISecretKey> => {
   const response = await fetch(Request.API_SERVER);
@@ -34,6 +35,8 @@ export function dataSuccess(items: {
 }
 
 export function logOut(): IRequest {
+  history.push("/");
+  localStorage.clear();
   return {
     type: Request.LOG_OUT,
     payload: { isAuthenticated: false }

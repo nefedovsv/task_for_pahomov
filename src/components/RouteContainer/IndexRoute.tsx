@@ -7,7 +7,7 @@ import { PrivateRoute } from "./PrivateRoute";
 import { Authentication } from "./Authentication";
 import { LogOutButton } from "../common/LogOutButton";
 
-const history = createBrowserHistory();
+export const history = createBrowserHistory();
 
 export function IndexRoute() {
   return (

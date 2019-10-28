@@ -1,8 +1,8 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 import Button from "@material-ui/core/Button";
+import { history } from "../RouteContainer/IndexRoute";
 
-export const NoMatchPage = withRouter(({ history }) => {
+export const NoMatchPage: React.FC = (): JSX.Element => {
   return (
     <Button
       variant="contained"
@@ -13,4 +13,4 @@ export const NoMatchPage = withRouter(({ history }) => {
       Вернуться на главную!
     </Button>
   );
-});
+};
