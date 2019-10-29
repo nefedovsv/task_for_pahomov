@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "23f512edec343fb6ad602297c3c8cc38",
+    "revision": "870462bbb8a4e6dd36d4a7c1be5db2b4",
     "url": "/task_for_pahomov/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/task_for_pahomov/static/js/2.6b7d5862.chunk.js"
   },
   {
-    "revision": "4a1eade52ac48da0bbcf",
-    "url": "/task_for_pahomov/static/js/main.e5ae6a83.chunk.js"
+    "revision": "8cbe5b1865f5aba81776",
+    "url": "/task_for_pahomov/static/js/main.c39a397b.chunk.js"
   },
   {
     "revision": "374d26bb14fdd5838824",

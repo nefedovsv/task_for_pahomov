@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/task_for_pahomov/static/js/main.e5ae6a83.chunk.js",
-    "main.js.map": "/task_for_pahomov/static/js/main.e5ae6a83.chunk.js.map",
+    "main.js": "/task_for_pahomov/static/js/main.c39a397b.chunk.js",
+    "main.js.map": "/task_for_pahomov/static/js/main.c39a397b.chunk.js.map",
     "runtime-main.js": "/task_for_pahomov/static/js/runtime-main.69a4e98a.js",
     "runtime-main.js.map": "/task_for_pahomov/static/js/runtime-main.69a4e98a.js.map",
     "static/js/2.6b7d5862.chunk.js": "/task_for_pahomov/static/js/2.6b7d5862.chunk.js",
     "static/js/2.6b7d5862.chunk.js.map": "/task_for_pahomov/static/js/2.6b7d5862.chunk.js.map",
     "index.html": "/task_for_pahomov/index.html",
-    "precache-manifest.c37d6c1799e63e50667e1bd2449a5e57.js": "/task_for_pahomov/precache-manifest.c37d6c1799e63e50667e1bd2449a5e57.js",
+    "precache-manifest.85177365b555258951cd2ec47bed1bd0.js": "/task_for_pahomov/precache-manifest.85177365b555258951cd2ec47bed1bd0.js",
     "service-worker.js": "/task_for_pahomov/service-worker.js"
   }
 }

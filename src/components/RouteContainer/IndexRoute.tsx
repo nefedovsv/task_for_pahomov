@@ -7,7 +7,7 @@ import { PrivateRoute } from "./PrivateRoute";
 import { Authentication } from "./Authentication";
 import { LogOutButton } from "../common/LogOutButton";
 
-export const history = createBrowserHistory();
+export const history = createBrowserHistory({ basename: "task_for_pahomov/" });
 
 export function IndexRoute() {
   return (
