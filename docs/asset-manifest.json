@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "/test_aspect-systems/static/js/main.e4c2ff9d.chunk.js",
+    "main.js.map": "/test_aspect-systems/static/js/main.e4c2ff9d.chunk.js.map",
+    "runtime-main.js": "/test_aspect-systems/static/js/runtime-main.dd2af392.js",
+    "runtime-main.js.map": "/test_aspect-systems/static/js/runtime-main.dd2af392.js.map",
+    "static/js/2.05dec8a2.chunk.js": "/test_aspect-systems/static/js/2.05dec8a2.chunk.js",
+    "static/js/2.05dec8a2.chunk.js.map": "/test_aspect-systems/static/js/2.05dec8a2.chunk.js.map",
+    "index.html": "/test_aspect-systems/index.html",
+    "precache-manifest.c07a79c611cbef79f24d8fb549d2caec.js": "/test_aspect-systems/precache-manifest.c07a79c611cbef79f24d8fb549d2caec.js",
+    "service-worker.js": "/test_aspect-systems/service-worker.js"
+  }
+}
